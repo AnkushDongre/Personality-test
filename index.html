@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Test</title>
+  </head>
+  <body>
+     <div class="heading container bg-secondary text-light text-center p-3 mt-5">
+        <h1 class="text-center">Work-Value Test</h1>
+    </div>
+    <div class="cF container text-center instruction-section shadow p-3 mb-5 bg-body rounded mt-5" id="instruction-section" style="display: block;">
+        <h1 class="m-2">Instruction Section</h1>
+        <p class="lead  p-5 introT">The statements below represent values which people consider important in their
+            work. These are satisfactions
+            which people often seek in their jobs or as a result of their jobs. They are not all considered equally
+            important; some are very important to some people but of little importance to others. Read each statement
+            carefully and indicate how important it is to you.
+        </p>
+        <button type="button" onclick="goToTestSec()" class="startB btn btn- mb-5">Start Test</button>
+    </div>
+    <div class="container test-section shadow p-3 mb-5 bg-body rounded mt-5" id="test-section" style="display: none;">
+        <h1 class="text-center  m-2"></h1>
+        <div class="  text-center p-3 mt-2"><span id="question-number" class="question-number h1"></span><span
+                id="question" class="question h1"></span>
+        </div>
+        <div class="container text-center p-3">
+            <h3>Options</h3>
+            <button type="button" onclick="answerOneFun()" value="1" class="optionB btn btn- mt-2">Unimportant</button>
+            <button type="button" onclick="answerTwoFun()" value="2" class="optionB btn btn- mt-2">Of Little
+                Importance</button>
+            <button type="button" onclick="answerThreeFun()" value="3" class="optionB btn btn- mt-2">Moderately
+                Important</button>
+            <button type="button" onclick="answerFourFun()" value="4" class="optionB btn btn- mt-2">Important</button>
+            <button type="button" onclick="answerFiveFun()" value="5" class="optionB btn btn- mt-2">Very
+                Important</button>
+        </div>
+        <div class="container text-center">
+            <button type="submit" id="next-question-btn" class="submitB btn btn m-5 next-question"
+                onclick="submitAnswer()">Submit and
+                Next</button>
+            <button type="submit" id="show-result-btn" class="submitBT btn btn- m-5 show-result-btn " onclick="showResult()"
+                style="display: none;">Submit
+                Test</button>
+        </div>
+    </div>
+    <div class="container result-section text-center" id="result-section" style="display: none;">
+        <h1 class="text-center  p-2 m-2">Result</h1>
+
+
+        
+        <div class="container crevativity" id="crevativity">
+            <h2>CREATIVITY</h2>
+            <p>Work which permits one to invent new things, design newproducts, or develop new ideas.</p>
+            <div class=" rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                  id="creativity-score">20</div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container management">
+            <h2>MANAGEMENT</h2>
+            <p>Work which permits one to plan and lay out work for others.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="management-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container achievement">
+            <h2>ACHIEVEMENT</h2>
+            <p>Work which gives one the feeling of accomplishment in doing a job well.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="achive-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container surroundings">
+            <h2>SURROUNDINGS</h2>
+            <p>Work which is carried out under pleasant conditions not too hot or too cold, noisy, dirty,
+                etc.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="surroundings-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container supervisory-relationships">
+            <h2>SUPERVISORY RELATIONSHIPS</h2>
+            <p>Work which is carried out under a supervisor who is fair and with whom one can get along.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="supervisory-relationships-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container way-of-life">
+            <h2>WAY OF LIFE</h2>
+            <p>Work that permits one to live the kind of life he/she chooses and to be the type of person
+                he/she wishes to be.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="way-of-life-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container security">
+            <h2>SECURITY</h2>
+            <p>Work that permits one to live the kind of life he/she chooses and to be the type of person
+                he/she wishes to be.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="security-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container associates">
+            <h2>ASSOCIATES</h2>
+            <p>Work which brings one into contact with fellow workers whom you like.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="associates-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container aesthetic">
+            <h2>AESTHETIC</h2>
+            <p>Work which permits one to make beautiful things and to contribute beauty to the world.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="aesthetic-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container prestige">
+            <h2>PRESTIGE</h2>
+            <p>Work which gives one standing on the eyes of others and evokes respect.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="prestige-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container independence">
+            <h2>INDEPENDENCE</h2>
+            <p>Work which permits one to work in his/her own way, as fast or slow as he/she wishes.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="independence-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container variety">
+            <h2>VARIETY</h2>
+            <p>Work which provides an opportunity to do different types of tasks.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div id="variety-score">
+                    20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container economic-return">
+            <h2>ECONOMIC RETURN</h2>
+            <p>Work which pays well and enables one to have the things he/she wants.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="economic-return-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container altrusim">
+            <h2>ALTRUISM</h2>
+            <p>Work which enables one to contribute to the welfare of others.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="altrusim-return-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container intellectual-stimulation">
+            <h2>INTELLECTUAL STIMULATION</h2>
+            <p>Work which provides opportunity for independent thinking and for learning how and why things
+                work.
+            </p>
+            <div class="rounded-circle bg-success text-light text-center p-2 fs-3"
+                style="margin: auto; border-radius: 50%; width: 100px; height: 100px;">Score:<div
+                    id="intellectual-stimulation-return-score">20
+                </div>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="container">
+            <a href="index.html" class="againB btn btn-">Test Again</a>
+            <a href="index.html" class="homeB btn btn-">Home Page</a>
+            <button type="button" onclick="print()" class="printB btn btn-">Print Result</button>
+        </div>
+    
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
